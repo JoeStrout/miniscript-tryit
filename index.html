@@ -7,7 +7,7 @@
     <title>MiniScript: Try It!</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="miniscript-web-term/dist/miniscript-web-term.css"/>
+	<link rel="stylesheet" href="miniscript-web-term/miniscript-web-term.css"/>
 </head>
 
 <body data-src-file="miniscript-web-term/example/main.ms">
@@ -49,12 +49,12 @@ print "Hello world!"</div>
 </div>
 
 <!-- Scripts -->
-<script src="ace/build/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="ace/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/textmate");
     editor.session.setMode("ace/mode/miniscript");
 </script>
-<script src="miniscript-web-term/dist/miniscript-web-term.js"></script>
+<script src="miniscript-web-term/miniscript-web-term.js"></script>
 </body>
 </html>
