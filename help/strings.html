@@ -1,0 +1,32 @@
+<p>Text is stored in <b>strings</b> of Unicode characters.  String literals are written within straight quotation marks.  If you need to include a quotation mark in a string, write it twice.  (No other escaping or special processing of certain characters is done.)</p>
+
+<pre class="code">print "Hello, Jane.  I'm Bob."
+print "Hello, ""Bob,"" if that is your real name."</pre>
+
+<p>Strings support the following operators:</p>
+
+<table class="oplist">
+<tr><th>+</th><td>string concatenation</td></tr>
+<tr><th>-</th><td>string subtraction (chop)</td></tr>
+<tr><th>*</th><td>replication (i.e. repeat a string some number of times)</td></tr>
+<tr><th>/</th><td>division (get some fraction of a string)</td></tr>
+<tr><th>==, !=, &gt;, &gt;=, &lt;, &lt;=</th><td>comparison</td>
+<tr><th>[i]</th><td>get character i (first character is 0)</td>
+<tr><th>[i:j]</th><td>get substring ("slice") from i up to j</td>
+</table>
+
+<p>The indexes <i>i</i> and <i>j</i> above are nifty: if negative, they count from the <i>end</i> of the string.  If nonnegative, they count forward, starting at zero.  Also, with the slice operator, you can omit either or both values, and they default to the start and end of the string.  Examples, all supposing that s = "abcde":</p>
+
+<table class="oplist">
+<tr><th>s[0]</th><td>"a" (first character)</td></tr>
+<tr><th>s[1]</th><td>"b" (second character)</td></tr>
+<tr><th>s[-1]</th><td>"e" (last character)</td></tr>
+<tr><th>s[-2]</th><td>"d" (next-to-last character)</td></tr>
+<tr><th>s[1:-1]</th><td>"bcd" (everything from the second up to the last character)</td></tr>
+<tr><th>s[1:]</th><td>"bcde" (everything from the second character to the end)</td></tr>
+<tr><th>s[:-1]</th><td>"abcd" (everything up to the last character)</td></tr>
+</table>
+
+<p>Slicing and indexing of strings (and lists) is incredibly powerful once you get the hang of it.</p>
+
+<p>Note that strings, like numbers, are <i>immutable</i>: you can't actually change a string value.  The operators above all return a new string (well, except for the comparison operators, which return numeric truth values).  String comparisons in MiniScript are case-sensitive.</p>

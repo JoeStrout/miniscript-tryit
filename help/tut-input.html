@@ -1,0 +1,17 @@
+<p>Now that you understand <a href="#" onclick="help_select('tut-vars'); return false;">variables</a>, you can start making MiniScript programs that are interactive!  The key to this is the built-in function <b>input</b>.</p>
+
+<p>The <b>input</b> function takes an optional argument, which is a prompt to display to the user, and then returns (as a string) whatever the user types in.  Try it!</p>
+
+<pre class="code">name = input("What is your name?")
+print "Hello, " + name + "!"</pre>
+
+<p>Pause for a moment and think about how cool that is.  You can now make programs that can ask for information from the user, cogitate on that information, and produce a unique result.  Every run of the program can do something new and useful based on the information the user provides.  <i>This</i> is the power that got us to the Moon; it's the power that took the world by storm in the second half of the 20th century; and now that power is yours.</p>
+
+<p>Keep in mind that the result of <b>input</b> is a string.  If you want to do math with it, you must convert it to a number using the <b>val</b> function.</p>
+
+<pre class="code">age = input("Enter your age:")
+print "That's " + val(age) * 7 + " in dog years!"</pre>
+
+<p><b>Challenge:</b> Make a program that asks the user how much spam they want, and then prints out "Spam!" that many times.  (Hint: you will use <b>val</b> along with <a href="#" onclick="help_select('tut-str2', ['tut-input', 'Tutorial']); return false;">string replication</a>.)
+
+<div><b><a href="#" onclick="help_select('tut-while'); return false;">Next: While Loops</a></b></div>

@@ -1,0 +1,27 @@
+<p>The <b>if statement</b> is an essential element of almost any program.  It lets you write code that runs only when some condition you specify is true.  It looks like this:</p>
+
+<pre class="code">if 2+2 == 4 then
+   print "math works!"
+end if</pre>
+
+<p>This says that if two plus two is equal to four, then it should print "math works!"; otherwise, it should not (because in that case, math would be very broken!).</p>
+
+<p>You can also add any number of <a href="#" onclick="help_select('elseif', ['tut-if', 'Tutorial']); return false;">else if</a>  sections to test for other conditions, and an <a href="#" onclick="help_select('else', ['tut-if', 'Tutorial']); return false;">else</a> block to handle the case where none of the above conditions apply.  Try this:</p>
+
+<pre class="code">num = val(input("Enter a number from 1 to 100:"))
+if num < 0 then
+	print "I wanted a POSITIVE number!"
+else if num == 0 then
+	print "Zero is not between 1 and 100."
+else if num < 50 then
+	print "That's a pretty small number."
+	print "Could I maybe get " + num*2 + " instead?"
+else if num > 100 then
+	print "That's a bit much, don't you think?"
+else
+	print num + " is a nice number, thank you!"
+end if</pre>
+
+<p>Now that you understand <a href="#" onclick="help_select('tut-for', ['tut-if', 'Tutorial']); return false;">for</a> and <a href="#" onclick="help_select('tut-while', ['tut-if', 'Tutorial']); return false;">while</a> loops and the <b>if</b> statement, you can structure code to do pretty much anything you want!  We'll flex these new muscles with a few fun little programs.</p>
+
+<div><b><a href="#" onclick="help_select('tut-guess'); return false;">Next: Guessing Game</a></b></div>

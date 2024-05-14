@@ -1,0 +1,11 @@
+<p>The following functions relate to the operation of MiniScript itself, or its host environment.  Note that except for <b>globals</b> and <b>locals</b>, these functions are only quasi-standard, and may vary a bit depending on the host environment.</p>
+
+<table class="methodlist">
+<tr><th>globals</th><td>reference to the global variable map</td></tr>
+<tr><th>input(s="")</th><td>display prompt s, wait for the user to enter a string, and return it</td></tr>
+<tr><th>locals</th><td>reference to the local variable map (of the current call frame)</td></tr>
+<tr><th>print(x)</th><td>convert x to a string and print to the default text output stream</td></tr>
+<tr><th>time</th><td>number of seconds since program execution began</td></tr>
+<tr><th>wait(x=1)</th><td>pause x seconds before proceeding</td></tr>
+<tr><th>yield</th><td>wait for the next iteration of the main engine loop (e.g. next frame in a game)</td></tr>
+</table>

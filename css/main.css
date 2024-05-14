@@ -1,0 +1,17 @@
+a.lineGo {
+	color: #dc5a5a;
+	text-decoration: none;
+}
+
+pre.code { background-color:#eeeeee; color:#002200; font-family:"Lucida Console",Monaco,monospace; padding:6px; margin-left:20px; margin-right:20px }
+pre.terminal { color:#44cc44; background-color:#002200; font-size:80%; padding:6px; margin-left:40px; margin-right:40px; font-family:"Lucida Console",Monaco,monospace; -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); }
+pre.shellscript { color:#222222; background-color:#cccccc; font-size:80%; padding:6px; margin-left:40px; margin-right:40px; font-family:"Lucida Console",Monaco,monospace; -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); }
+tr:nth-child(even) {background-color: #d2d2d2;}
+table.methodlist { margin-left:40px; margin-right:40px; text-align:left; font-size:80%; }
+.methodlist th { color:#006600; font-family:"Lucida Console",Monaco,monospace; font-weight:normal; }
+table.oplist { margin-left:40px; margin-right:40px; text-align:left; font-size:80%; border-collapse:collapse; }
+.oplist th { color:#002200; font-family:"Lucida Console",Monaco,monospace; font-weight:normal; padding-right:20px; }

@@ -1,0 +1,21 @@
+<p>When you invoke a function via dot syntax (e.g. <b>x.foo</b>), that function receives one extra argument, called <b>self</b>, that refers to the object (map) it was invoked on.</p>
+
+<p>This allows <a href="<a href="#" onclick="help_select('oop'); return false;">classes</a> to define methods that can access data on the instance.  Consider the following.</p>
+
+<pre class="code">Greeter = {"name": "anonymous"}
+Greeter.greet = function()
+    print("Hello, my name is " + self.name + "!")
+end function
+
+bob = new Greeter
+bob.name = "Bob"
+bob.greet</pre>
+
+<p>This prints "Hello, my name is Bob!" because <b>self</b> in this case is bound to the <i>bob</i> map.  If we invoked the same function via some other map, it could have a different name.</p>
+
+<pre class="code">mary = new Greeter
+mary.name = "Mary"
+mary.greet</pre>
+
+(<a href="https://miniscript.org/tryit/11364d4A?help=self">Try it!</a>)
+

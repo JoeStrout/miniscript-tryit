@@ -1,0 +1,12 @@
+<p>The <b>break</b> statement exits out of a <b>for</b> or <b>while</b> loop immediately, jumping to the next statement after <b>end for</b> or <b>end while</b>.  In the case of nested loops, it breaks out of the <i>innermost</i> loop.</p>
+
+<p>MiniScript doesn't have a "repeat...until" structure, but you can get the same effect by using <b>break</b> with <b>while true</b>:</p>
+
+<pre class="code">while true
+   roll = 1 + floor(rnd * 6)
+   print "I rolled: " + roll
+   if roll == 1 then break
+end while
+print "Finally rolled a 1!"</pre>
+
+<p>This example continues looping until <i>roll</i> is equal to 1.</p>

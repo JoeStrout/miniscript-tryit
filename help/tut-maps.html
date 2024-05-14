@@ -1,0 +1,43 @@
+<p>The last of the four basic data types in MiniScript is the <b>map</b>.  A <i>map</i> is a list of key-value pairs.  It can contain any number of keys, though they must all be unique.  And each key is associated with a certain value (which does not have to be unique).  Keys and values can be any type.</p>
+
+<p>That's all very abstract, so let's try an example.  You write a dictionary in MiniScript by using curly braces, with the keys and values separated by colons, like so:</p>
+
+<pre class="code">d = {1:"one", 2:"two", 3:"three"}
+print d[2]</pre>
+
+<p>See if you can guess what that does before you try it.  ...Were you right?</p>
+
+<p>The <i>keys</i> in this example were the numbers 1, 2, and 3.  And the <i>values</i> were those strings associated with each key: "one" for 1, "two" for two, and "three" for three.  You can index into a map with square brackets, just like you'd index into a list or a string.  But where the indexes of a list or string are <i>always</i> numbers (from 0 up to the length of the list or string), the indexes of a map are the keys, which could be anything.</p>
+
+<p>Here's a map that maps the other way, from strings to numbers:</p>
+
+<pre class="code">d = {"one":1, "two":2, "three":3}
+print d["two"]</pre>
+
+<p>When the keys happen to be strings, there is an alternate way to get their values, called "dot syntax."  You just write the string key after the map reference and a dot (period), like this:</p>
+
+<pre class="code">d = {"one":1, "two":2, "three":3}
+print d.two
+</pre>
+
+<p>This makes for shorter, cleaner code in cases where you know what keys you want to use when you're writing the code (instead of looking up keys calculated in some way while the program is running).</p>
+
+<p>Note that you can add or replace values in a map by simply assigning to them by key, either with square brackets or (for string keys) with dot syntax.
+
+<pre class="code">d = {}
+d["one"] = 1
+d.dos = 2
+print d.one + ", " + d.dos</pre>
+
+<p>Check out the built-in <a href="#" onclick="help_select('map-funcs', ['tut-maps', 'Tutorial']); return false;">map functions</a> that provide ways to get a list of all the indexes (keys) or values, remove items from the map, and more.  Go ahead, we'll wait.</p>
+
+<p><b>Recap of MiniScript types.</b></p>
+<ul>
+<li><b>Numbers</b> are for simple numeric values like 42, 3.1457, and -12.</li>
+<li><b>Strings</b> hold bits of text, like "Hello world" and "Spam!"  Indexed or sliced by position number, starting at 0 (counting forward) or -1 (counting backward from the end).</li>
+<li><b>Lists</b> hold an ordered sequence of other values.  Also indexed/sliced by position number, starting at 0 (counting forward) or -1 (counting backward from the end).</li>
+<li><b>Maps</b> hold key-value pairs.  Indexed by key; and for string keys, supports dot syntax.</li>
+</ul>
+
+<div><b><a href="#" onclick="help_select('tut-if'); return false;">Next: If</a></b></div>
+

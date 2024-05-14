@@ -1,0 +1,29 @@
+<p>MiniScript has a variety of built-in <i>functions</i>, which are like commands or operations that you invoke by name.  You've used one a bunch of times already: <b>print</b>.  When you write</p>
+
+<pre class="code">print 6 * 7</pre>
+
+<p>You are really saying, "Invoke the function called <i>print</i> and give it the value of 6 * 7."  (The values you give a function are called its <i>arguments</i> in computer jargon.)</p>
+
+<p>You've seen another built-in function too: <b>pi</b>.  This is a function that needs no arguments; it just always returns that magic number.  Again you use it just by using its name any place you would normally use a number:</p>
+
+<pre class="code">print 2 * pi</pre>
+
+<p>Many functions need arguments, and return a result.  These you invoke with the function name, followed by its arguments in parentheses.  For example, the <b>sqrt</b> function calculates the square root of a number.</p>
+
+<pre class="code">print "The square root of 100 is " + sqrt(100)</pre>
+
+<p>If a function takes more than one argument, just list them in order, separated by commas.  For example, <b>round</b> takes the number to round, and how many decimal places you want to round to.  You'd use it like this:
+
+<pre class="code">print "Pi is approximately " + round(pi, 2)</pre>
+
+<p>Note that in many cases, some or all arguments may be optional.  That means you can leave that argument out, and you'll get some default behavior.  The second parameter to <b>round</b> is optional and defaults to 0.  So if you want to round to whole numbers, you can just leave that second argument out:
+
+<pre class="code">print "Pi is approximately " + round(pi)</pre>
+
+<p>One more trick.  Many functions that operate on a particular type of data can be invoked in a different way, using a dot (i.e. period) after the data, and before the function name.  The value before the dot then gets passed in as the first argument.  This seems a little pointless now, but will become more useful once we have variables (which are coming next).  Here's an example:</p>
+
+<pre class="code">print "Hello world".len</pre>
+
+<p>Take some time to play around with the built-in (or "intrinsic") functions for <a href="#" onclick="help_select('numeric-funcs', ['tut-calls', 'Tutorial']); return false;">numbers</a> and <a href="#" onclick="help_select('string-funcs', ['tut-calls', 'Tutorial']); return false;">strings</a> .  Come back when you're ready.
+
+<div><b><a href="#" onclick="help_select('tut-vars'); return false;">Next: Variables</a></b></div>

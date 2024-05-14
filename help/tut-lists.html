@@ -1,0 +1,29 @@
+<p>So far we have worked with numbers and strings.  These are two of the four basic data types in MiniScript.   The third type is <b>lists</b>.</p>
+
+<p>A <i>list</i> is an ordered sequence of values.  You write these in code using square brackets around zero or more values, separated by commas.  Try this:</p>
+
+<pre class="code">print [2,4,6,8]</pre>
+
+<p>Just like strings, you can use the <b>+</b> operator to append two lists together.  And, just like variables, lists can contain any type of data.</p>
+
+<pre class="code">print [2,4,6] + [8, "who do we appreciate?"]</pre>
+
+<p>You can access any element of a list by specifying its index in square brackets after the list reference.  Indexes start with 0 for the first element, 1 for the next element, and so on.  Try it!</p>
+
+<pre class="code">x = [2, 4, 6, 8]
+print x[0]</pre>
+
+<p>You can also index in reverse, using negative numbers: [-1] is the last element, [-2] is the second from the end, etc.
+
+<pre class="code">x = [2, 4, 6, 8]
+print "My list starts with " + x[0] + " and ends with " + x[-1]</pre>
+
+<p>Lists in MiniScript are <i>mutable</i>, which just means that they can be changed.  You can replace any element in a list by simply assigning a new value to it.  Can you guess what this will print?
+
+<pre class="code">x = [2, 4, 6, 8]
+x[-1] = 42
+print x</pre>
+
+<p>Check out the built-in <a href="#" onclick="help_select('list-funcs', ['tut-lists', 'Tutorial']); return false;">list functions</a> that do things like add or remove values, get the length of the list, find the index of some value in the list, and more.
+
+<div><b><a href="#" onclick="help_select('tut-list-slice'); return false;">Next: List Slicing</a></b></div>

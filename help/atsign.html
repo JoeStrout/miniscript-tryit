@@ -1,0 +1,11 @@
+<p>It's important to understand that a function is itself a bit of data.  It's just that, whenever looking up the value of a variable, MiniScript checks for this special function data type; and if found, it invokes that function, rather than returning the function itself.</p>
+
+<p>Usually that is exactly what is wanted.  But occasionally you may want to copy the function reference, rather than invoking the function.  You can do this by prepending your identifier with an <b>@</b> (read “address of”).  Example:</p>
+
+<pre class="code">triple = function(n=1)
+   return n*3
+end function
+x = @triple
+print x(5) // prints: 15</pre>
+
+<p>Here we've declared a function and stored it in a variable called <i>triple</i>.  Then we copy the address of that function into another variable called <i>x</i>.  At this point we can invoke the function either way, via <i>triple</i> or via <i>x</i>, and both do exactly the same thing.  Had we left out the @ on the assignment, MiniScript would have instead evaluated the function triple refers to, and assigned the result (3) to <i>x</i>. </p>

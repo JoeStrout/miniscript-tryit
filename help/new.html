@@ -1,0 +1,14 @@
+<p>The <b>new</b> operator returns a map with an <b>__isa</b> entry set to the map you specify.  In fact, this code:</p>
+
+<pre class="code">Shape = {"sides":0}
+x = new Shape</pre>
+
+<p>is exactly equivalent to this code:</p>
+
+<pre class="code">Shape = {"sides":0}
+x = {"__isa": Shape}</pre>
+
+<p>So <b>new</b> is really syntactic sugar, justified because it is so commonly needed in object-oriented programming, and because we'd rather not have to remember that special __isa entry (explained <a href="#" onclick="help_select('oop'); return false;">here</a>) too much.</p>
+
+<p>Because MiniScript uses prototype-based inheritance, <b>new</b> is used both for creating subclasses, and for creating objects (instances).  To MiniScript, these are the same thing; the only difference between a subclass and an instance is how you choose to think about it.</p>
+

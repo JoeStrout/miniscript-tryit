@@ -1,0 +1,11 @@
+<p>The <b>continue</b> statement skips the rest of the current <b>for</b> or <b>while</b> loop, continuing with the next iteration.  It's often used near the top of the loop to skip items that you don't want to process.</p>
+
+<pre class="code">s = "I never could get the hang of Thursdays."
+result = ""
+for c in s
+   if c == "a" or c == "e" then continue
+   result = result + c
+end for
+print result</pre>
+
+<p>This loop iterates over all the characters of s, adding them to result... but skips any character equal to "a" or "e".</p>

@@ -1,0 +1,29 @@
+<p>MiniScript has two ways of looping.  One of them is the <b>while</b> loop.  (The other is the <b>for</b> loop, but we'll come back to that later.)</p>
+
+<p>A <b>while</b> loop is a block of code that runs over and over as long as some condition is true.  Let's illustrate with an example:</p>
+
+<pre class="code">bunnies = 2
+while bunnies < 200
+    print bunnies + " bunnies"
+    bunnies = bunnies * 2
+end while
+print "Too many bunnies!"</pre>
+
+<p>The lines between <b>while</b> and <b>end while</b> are repeated as long as <span class="code">bunnies</span> is less than 200.  Then, the <b>while</b> loop finally exits, and MiniScript goes onto the next line after <b>end while</b>.  (Note that it is traditional to indent the lines inside a loop, as in the example above.  This isn't mandatory; it just makes things look neater.)</p>
+
+<p>The condition in a <b>while</b> loop will often involve comparing values, so we should address how to do that.  These are the comparison operators in MiniScript:</p>
+
+<table class="oplist">
+<tr><th>==</th><td>equals</td></tr>
+<tr><th>!=</th><td>not equal</td></tr>
+<tr><th>&lt;</th><td>less than</td></tr>
+<tr><th>&lt;=</th><td>less than or equal to</td></tr>
+<tr><th>&gt;</th><td>greater than</td></tr>
+<tr><th>&gt;=</th><td>greater than or equal to</td></tr>
+</table><br/>
+
+<p>Notice that to test whether two values are equal, you use <b>==</b>.  To assign a value to a variable, you use <b>=</b>.  Please be careful to use the correct operator, or you will get an error message.</p>
+
+<p>If you want, you can go read about the <a href="#" onclick="help_select('break', ['tut-while', 'Tutorial']); return false;">break</a> and <a href="#" onclick="help_select('continue', ['tut-while', 'Tutorial']); return false;">continue</a> statements, which let you jump out of a loop or skip to its next repeat.  But those are advanced topics you can probably ignore for now.</p>
+
+<div><b><a href="#" onclick="help_select('tut-lists'); return false;">Next: Lists</a></b></div>

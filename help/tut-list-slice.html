@@ -1,0 +1,22 @@
+<p>You've seen how to define <a href="#" onclick="help_select('tut-lists'); return false;">lists</a>, and get or set a single element thereof.  You can also get a whole subset of a list at once, using the <b>:</b> <i>slice operator</i>.  Basically, instead of specifying a single index to get, you specify a start and end index separated by a colon.  This returns a new list containing all the elements from start up to (but not including) the end specified.  For example:</p>
+
+<pre class="code">x = [2, 4, 6, 8, 10, 12, 14]
+print x[1:5]</pre>
+
+<p>This returns the portion of the list from element 1 (which is 4) up to but not including element 5 (the 12)... i.e., [4, 6, 8, 10].</p>
+
+<p>You can use negative indexes to count from the end, too.  See if you can you guess what this will print:</p>
+
+<pre class="code">x = [2, 4, 6, 8, 10, 12, 14]
+print x[2:-1]</pre>
+
+<p>Finally, either index may be omitted.  If you leave out the first index, the result begins at the start of the list.  If you leave out the last index, the result continues to the end of the list.  So, for example, you could get the first three elements of a list like so:
+
+<pre class="code">x = [2, 4, 6, 8, 10, 12, 14]
+print x[:3]</pre>
+
+<p><b>Challenge:</b> How would you get the <i>last</i> three elements of a list?</p>
+
+<p>P.S. Slicing can also be done on strings!  It works exactly the same way.  Try it!</p>
+
+<div><b><a href="#" onclick="help_select('tut-for'); return false;">Next: For Loops</a></b></div>

@@ -1,6 +1,6 @@
 # miniscript-tryit
 
-###Online editor/runner/tutorial for basic MiniScript code
+### Online editor/runner/tutorial for basic MiniScript code
 
 ## Cloning this repo
 

@@ -1,0 +1,31 @@
+<p>The last basic data type in MiniScript is the <b>map</b>.  A map is a set of key-value pairs, where each unique key maps to some value.  In some programming environments, this same concept is called a <i>dictionary</i>.</p>
+
+<p>Create a map with curly braces around a comma-separated list of key-value pairs.  Specify each pair by separating the key and value with a colon, as shown here.</p>
+
+<pre class="code">m = {1:"one", 2:"two", 3:"three"}</pre>
+
+<p>The map created here contains three key-value pairs, each mapping a number to a string (which happens to be the English word for that number in this example).</p>
+
+<p>Map keys may be numbers or strings, and must be unique; if you reuse a key, the previous value is replaced.  Values may be any type, including lists or dictionaries.  Order within a map is not preserved; <b>for</b> loops iterate over a map in arbitrary order.</p>
+
+<p>Maps support only a few operators:</p>
+
+<table class="oplist">
+<tr><th>+</th><td>map concatenation</td></tr>
+<tr><th>[k]</th><td>value associated with key k</td></tr>
+<tr><th>.k</th><td>value associated with (string k)</td></tr>
+</table>
+
+<p>There are two ways to get and set members of a map.  The first is to use the square-brackets index operator, just as with strings or lists, except that in the case of a map, the key can be a string as well as a number.</p>
+
+<pre class="code">d = {"yes":"hai", "no":"iie", "maybe":"tabun"}
+print d["maybe"]      // prints: tabun
+d["maybe"] = "kamo"
+print d["maybe"]      // prints: kamo</pre>
+
+<p>The second way is using the <i>dot indexer</i>. This works only in the special case where the key is a string that is a valid identifier: it begins with a letter, and contains only letters, numbers, and underscores. In this case you can write the key after a dot rather than enclosing it in square brackets and quotation marks &mdash; the key essentially becomes an identifier in the language. The following works just like the previous example.</p>
+
+<pre class="code">d = {"yes":"hai", "no":"iie", "maybe":"tabun"}
+print d.maybe        // prints: tabun
+d.maybe = "kamo"
+print d.maybe        // prints: kamo</pre>

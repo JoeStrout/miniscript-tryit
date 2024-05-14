@@ -1,0 +1,15 @@
+</p>Functions in MiniScript are a data type that contains executable code.  Functions can take any number of parameter values, and return one value.  You've probably already used the <b>print</b> function, which prints the given value to the screen, and returns null.</p>
+
+<pre class="code">print 6*7</pre>
+
+<p>You invoke a function just by evaluating any reference to it, as shown above.  To specify parameter values, write them after the function name, separated by commas.  Parameters values (i.e. "arguments") must be given in the order defined by the function itself; there is no way to pass an argument by its parameter name, for example.  You can pass fewer than the defined number of arguments, and the remaining parameters will get default values.  But you'll get a <i>Too Many Arguments</i> error if you try to pass more arguments than the function expects.</p>
+
+<p>The only time you need parentheses around the arguments are when the function is part of a larger statement (without them, it would be unclear which arguments belong to what).  When the function itself is the entire statement, no parentheses are needed around its arguments.  And when invoking a function without arguments, the parentheses are never needed.</p>
+
+<pre class="code">wait
+print rnd
+print cos(pi)</pre>
+
+<p>The above code waits 1 second (the default value for <b>wait</b>'s parameter).  Then it prints a random number, and finally, prints the cosine of <b>pi</b>.  Parentheses are needed only on the <b>cos</b> call, because it has arguments (<b>pi</b>) and is part of a larger statement.</p>
+
+<p>Use the subtopics at left to learn more about defining your own functions, or about the intrinsic (built-in) functions in MiniScript.</p>

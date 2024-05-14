@@ -1,0 +1,14 @@
+<p>Sometimes you want to check for one condition, and if that fails, then you want to check for something else.  Maybe there's a bunch of different cases you want to check for!  The <b>else if</b> clause does exactly that.</p>
+
+<pre class="code">age = val(input("Enter your age:"))
+if age > 50 then
+   print "Grant me your wisdom, O elder!"
+else if age > 23 then
+   print "Wow, you're old!"
+else if age < 1 then
+   print "Frankly, I don't believe you."
+else
+   print "Hello, youngster!"
+end if</pre>
+
+<p>An <b>if/else-if/else</b> construct like this checks each condition, in order, executing the block that matches first, and then jumping to <b>end if</b>.  If none of the conditions match, the optional <b>else</b> clause will be executed.</p>

@@ -1,0 +1,10 @@
+<p>MiniScript supports object-oriented programming (OOP) via prototype-based inheritance.  That is, there is fundamentally no difference in MiniScript between a class and an object; the difference, when it exists at all, lives solely in the intent of the programmer.</p>
+
+<p>A class or object is a map with a special __isa entry that points to the parent (prototype).  This is an implementation detail you rarely need to worry about, because it is handled automatically by the following rules:</p>
+
+<ol>
+<li>When you create a map using the <a href="#" onclick="help_select('new'); return false;">new</a> operator, the __isa member is set for you.</li>
+<li>When you look up an identifier in a map, MiniScript will walk the __isa chain looking for a map containing that identifier.  The value returned is the first value found.</li>
+</ol>
+
+<p>These simple rules (plus <a href="#" onclick="help_select('self'); return false;">self</a>) provide everything needed for object-oriented programming.  A series of "classes" may be defined as maps containing functions and default data, which are inherited or overridden as needed.  An "object" is just another map, inherited from some class, which normally contains only custom data.</p>

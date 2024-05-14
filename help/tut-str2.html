@@ -1,0 +1,23 @@
+<p>You know how to print <a href="#" onclick="help_select('tut-strings'); return false;">strings</a> pretty much exactly as they are in the code.  But MiniScript can do much more than that.  Just as you can do math with numbers, you can do operations with strings too.  For example, you can add two strings together:</p>
+
+<pre class="code">print "How" + "dy"</pre>
+
+<p>Can you guess what output this produces?  Try it and see if you were right!</p>
+
+<p>You may wonder: if you can add strings together, can you also subtract them?  The answer is yes.  (The answer to such questions in MiniScript is usually yes!)  Try this:</p>
+
+<pre class="code">print "starry_night.jpg" - ".jpg"</pre>
+
+<p>But wait, there's more!  You can also multiply a string by a number.  This is known as <i>string replication</i>, and is equivalent to adding a string to itself many times.
+
+<pre class="code">print "spam, " * 5</pre>
+
+<p>And of course, if you can multiply, you can also divide.  That's rarely needed so we won't show it here, but experiment and have some fun with it.  (Use the <b>/</b> operator, just like you would with numbers.)</p>
+
+<p>Our first example above showed adding two strings together.  It turns out that you can add <i>anything</i> to a string, such as a number for example.  In this case the number will be converted to a string and appended to the first string.  Try it:</p>
+
+<pre class="code">print "High " + 5</pre>
+
+<p>The rule is: if either of the things you're adding is a string, then everything gets converted to strings and jammed together.  This is very commonly used with <b>print</b> to output several values at once.</p>
+
+<div><b><a href="#" onclick="help_select('tut-calls'); return false;">Next: Using Functions</a></b></div>

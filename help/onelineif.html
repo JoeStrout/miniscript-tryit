@@ -1,0 +1,17 @@
+<p>It often happens that you need to check a simple condition and do one simple thing when it's true.  You could use a standard <b>if</b> block for that, but your code might actually be shorter and clearer by using the <b>single-line if</b>.
+
+<pre class="code">if x == null then x = 1</pre>
+
+<p>This is exactly equivalent to the standard form:</p>
+
+<pre class="code">if x == null then
+   x = 1
+end if</pre>
+
+<p>...only much shorter.  Note that you can only have a single statement after <b>then</b> when using the short (single-line) form; if you need to do more than one statement, you'll have to use the standard form.</p>
+
+<p>There is even a short form of <b>if...else</b>:
+
+<pre class="code">if x >= 0 then print "positive" else print "negative"</pre>
+
+<p>You do not use <b>end if</b> with the single-line form of <b>if</b> or <b>if...else</b>.</p>

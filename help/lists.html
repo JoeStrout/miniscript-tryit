@@ -1,0 +1,35 @@
+<p>A <b>list</b> is an ordered sequence of values.  The values can be any data type, and they don't all have to be the same.  Write a list as square brackets, surrounding zero or more values separated by commas.  The following are all valid lists:</p>
+
+<pre class="code">["uno", "dos", "tres"]
+[8, 6, 7, 5, 3, 0, 9]
+[1, 3.14157, "spam", ["a", "b", "c"]]
+[]</pre>
+
+<p>It's legal (and quite common) to create an empty list with just a pair of square brackets, as in the last example above.</p>
+
+<p>Lists support most of the same operators as strings:</p>
+
+<table class="oplist">
+<tr><th>+</th><td>list concatenation</td></tr>
+<tr><th>*</th><td>replication (i.e. repeat the list some number of times)</td></tr>
+<tr><th>/</th><td>division (get some fraction of a list)</td></tr>
+<tr><th>==, !=</th><td>comparison (for equality)</td>
+<tr><th>[i]</th><td>get/set item i (first item is 0)</td>
+<tr><th>[i:j]</th><td>get sublist ("slice") from i up to j</td>
+</table>
+
+<p>The indexes <i>i</i> and <i>j</i> above are nifty: if negative, they count from the <i>end</i> of the list.  If nonnegative, they count forward, starting at zero.  Also, with the slice operator, you can omit either or both values, and they default to the start and end of the list.  Examples, all supposing that x = ["a", 42, 3.14, 7, "hike"]:</p>
+
+<table class="oplist">
+<tr><th>x[0]</th><td>"a" (first item)</td></tr>
+<tr><th>x[1]</th><td>42 (second item)</td></tr>
+<tr><th>x[-1]</th><td>"hike" (last item)</td></tr>
+<tr><th>x[-2]</th><td>7 (next-to-last item)</td></tr>
+<tr><th>x[1:-1]</th><td>[42, 3.14, 7] (everything from the second up to the last item)</td></tr>
+<tr><th>x[1:]</th><td>[42, 3.14, 7, "hike"] (everything from the second item to the end)</td></tr>
+<tr><th>x[:-1]</th><td>[42, 3.14, 7, "hike"] (everything up to the last item)</td></tr>
+</table>
+
+<p>Slicing and indexing of lists (and strings) is incredibly powerful once you get the hang of it.</p>
+
+<p>Unlike strings, lists are <i>mutable</i>: you can change them in place by assigning to an element, or by using any of the mutator methods (which we'll document soon).<p>

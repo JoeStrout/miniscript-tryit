@@ -1,0 +1,30 @@
+<p>Here is our first complete MiniScript program that really does something, putting together much of what you've learned.</p>
+
+<p>It is recommended that you actually <b>type this code</b>; don't just copy and paste it!  Research has shown that people learn much better when they type the code than when they copy & paste.  Typing forces you to actually focus on the details, rather than glossing over them... and programming is all about the details!</p>
+
+<pre class="code">myNum = round(rnd*100)
+print "I'm thinking of a number between 0 and 100."
+tries = 0
+while true
+    tries = tries + 1
+    guess = val(input("Your guess?"))
+    if guess == myNum then break
+    if myNum > guess then
+        print "Higher!"
+    else
+        print "Lower!"
+    end if
+end while
+if tries == 1 then
+    print "You got it in one!  AMAZING!!!"
+else
+    print "You got it in " + tries + " guesses.  Good job!"
+end if</pre>
+
+<p>Type the above in, and run it.  If you get any errors, carefully compare what you typed to the code shown.  Remember that punctuation and capitalization matter!</p>
+
+<p>You should have everything you need to know to understand the above code by this point.  In the first line, remember that <b>round</b> rounds a number to the nearest whole number, and <b>rnd</b> generates a random number between 0 and 1.  When we multiply that by 100, it's now a random number between 0 and 100 (which <b>round</b> then makes into a whole number).<p>
+
+<p>Notice the main loop here: a <b>while true</b> infinite loop.  Many games work this way, looping forever, until the loop is broken by some condition.  In this case that happens on line 7: <b class="code">if guess == myNum then break</b>.  This is a <a href="#" onclick="help_select('onelineif', ['tut-guess', 'Tutorial']); return false;">single-line if statement</a> that  <a href="#" onclick="help_select('break', ['tut-guess', 'Tutorial']); return false;">break</a>s out of the while loop when your guess equals the random number.</p>
+
+<p>Testing that "AMAZING!" statement at the end will be really hard, since you have only a 1% chance of guessing correctly on the first try.  <b>Challenge:</b> cheat!  Add a line of code near the top of the program that tells you the value of myNum, so you can "guess" it right away.  The computer will still be amazed!</p>

@@ -1,0 +1,20 @@
+<p>All string functions except <b>slice</b> are designed to be invoked on strings using dot syntax, but can  also  be  invoked  as  globals  with  the  string  passed  in  as  the  first  parameter.    Note  that strings  are  immutable;  all  string  functions  return  a new  string,  leaving  the  original  string unchanged.</p>
+
+<p>In the following table, <i>self</i> refers to the string, <i>s</i> is another string argument, and <i>i</i> is an integer number. </p>
+
+<table class="methodlist">
+
+<tr><th>.code</th><td>Unicode code point of first character of self</td></tr>
+<tr><th>.hasIndex(i)</th><td>1 if i is in range(-self.len, self.len); otherwise 0</td></tr>
+<tr><th>.indexes</th><td>range(0, self.len-1)</td></tr>
+<tr><th>.indexOf(s, after=null)</th><td>0-based position of first substring s within self, or null if not found; optionally begins the search after the given position</td></tr>
+<tr><th>.len</th><td>length (number of characters) of self</td></tr>
+<tr><th>.lower</th><td>lowercase version of self</td></tr>
+<tr><th>.remove(s)</th><td>self, but with first occurrence of substring s removed (if any)</td></tr>
+<tr><th>.replace(oldVal, newVal, maxCount=null)</th><td>returns a string with the first maxCount elements matching oldVal replaced with newVal; if maxCount not specified, replaces all</td></tr>
+<tr><th>.split(delimiter=" ", maxCount=null)</th><td>splits self into a list of at most maxCount elements</td></tr>
+<tr><th>.upper</th><td>uppercase version of self</td></tr>
+<tr><th>.val</th><td>converts self to a number (if self is not a valid number, returns 0)</td></tr>
+<tr><th>.values</th><td>list of individual characters in self (e.g. "spam".values = ["s", "p", "a", "m"]</td></tr>
+<tr><th>slice(s, from, to)</th><td>equivalent to s[from:to]</td></tr>
+</table>

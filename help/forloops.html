@@ -1,0 +1,20 @@
+<p>A <b>for ... in</b> statement loops over a block of code once for each value in a list.  The list can be anything, but a common pattern is to use the <b>range</b> function to get a list of numbers.  For example:</p>
+
+<pre class="code">for i in range(10, 1)
+   print i + "..."
+   wait
+end for
+print "Liftoff!"</pre>
+
+<p>The whole set of lines from <b>for</b> to <b>end for</b> is called a <i>for loop</i>.  On each iteration through the loop, the variable before <b>in</b> is assigned one value from the given list.  Can you guess what the code above will do?</p>
+
+<p>Instead of a list, it's also possible to iterate over a text string or a map.  In the case of a string, the loop variable will be given each character of the string in order.</p>
+
+<p>When using <b>for</b> on a map, it's a little more complicated.  On each iteration, the loop variable is assigned a little mini-map containing <b>key</b> and <b>value</b>.
+
+<pre class="code">m = {1:"uno", 2:"dos", 3:"tres"}
+for kv in m
+   print "Key " + kv.key + " has value " + kv.value
+end for</pre>
+
+<p>This example prints out each of the key-value pairs in the map.</p>

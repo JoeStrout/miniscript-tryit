@@ -1,0 +1,21 @@
+<p>Now that you know about <a href="#" onclick="help_select('tut-lists'); return false;">lists</a> (and how to <a href="#" onclick="help_select('tut-list-slice'); return false;">slice</a> them), we can go over the second way of looping in MiniScript: the <b>for</b> loop.  It looks like this:</p>
+
+<pre class="code">for x in [2,4,8,16,32]
+	print x
+end for</pre>
+
+<p>The key bit is the first line above, which has the structure <b>for</b> <i>someVariable</i> <b>in</b> <i>someList</i>.  The body of the loop &mdash; everything between <b>for</b> line and the <b>end for</b> line &mdash; gets repeated once for each element of the list.  And on each repeat, the variable gets assigned the value of that element.</p>
+
+<p>So this lets you easily do something for every element of a list.</p>
+
+<p>A very common pattern is to use this with the <b><a href="#" onclick="help_select('list-funcs', ['tut-for', 'Tutorial']); return false;">range</a></b> function, which builds a list of numbers from the arguments you give it.  So if you just want to do something ten times, you can write:</p>
+
+<pre class="code">for i in range(1, 10)
+    print i
+end for</pre>
+
+<p>The <b>range</b> function is really handy, especially when used with <b>for</b>.  It can take a third parameter, which is the step size.  What do you think <b>range(0, 50, 5)</b> would do?  Experiment with different arguments until you're comfortable with it.</p>
+
+<p><b>Challenge:</b> Make a countdown program that asks the user for a starting number,  then counts backwards from that number down to 0, and then finally prints "Liftoff!"  (Remember to use <b>val()</b> to convert the result of <b>input</b> into a number.)</p>
+
+<div><b><a href="#" onclick="help_select('tut-maps'); return false;">Next: Maps</a></b></div>

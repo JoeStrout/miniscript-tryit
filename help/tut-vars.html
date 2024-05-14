@@ -1,0 +1,21 @@
+<p>So far all our programs have computed some string or numeric value, and then directly passed that to <b>print</b>.  But in many cases, you want to store values so you can refer to them later.  You do that with <i>variables</i>.</p>
+
+<p>A <i>variable</i> is a name associated with some value.  You create a variable just by assigning a value to it for the first time, and then you use it by simply using its name in some other expression.  See if you can guess what this will print out:</p>
+
+<pre class="code">x = 6
+x = x * 7
+print x</pre>
+
+<p>The first line above creates a variable called <b>x</b>, with a value of 6.  The second line changes that value to its previous value times 7.  And the last line prints it out.  Did you guess correctly?</p>
+
+<p>Variables in MiniScript are "dynamically typed," which means that they can hold any type of value.  The same variable could start out holding a number, then be given a string, and later changed to something else (there are a couple other types we'll learn about soon).</p>
+
+<p>Variable names should start with a letter, followed by any combination of letters, numbers, and the underscore character.  For tiny programs like these, it doesn't really matter what you call your variables.  For bigger programs, it's usually best to spend a few more letters to make it clear what the variable is for.</p>
+
+<pre class="code">radius = 5
+diameter = 2 * pi * radius
+print diameter</pre>
+
+<p>In this example <b>radius</b> and <b>diameter</b> are well-chosen variable names.  We could have used <b>q</b> and <b>z487</b>, but it would have been much less clear what's going on!</p>
+
+<div><b><a href="#" onclick="help_select('tut-input'); return false;">Next: Input</a></b></div>

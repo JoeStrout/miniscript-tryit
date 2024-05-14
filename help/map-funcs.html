@@ -1,0 +1,16 @@
+<p>Functions  on  maps  are  very  similar  to  functions  on  lists.  Maps  (like  lists)  are  mutable;  the <b>push</b>, <b>pop</b>, <b>remove</b>, and <b>shuffle</b> methods modify the map in place.   You can treat a map like  a  set  using <b>push</b>,  which  inserts  1  (true)  for  the  value  of  the  given  key,  and <b>pop</b>,  which returns  a  key  and  removes  it  (and  its  value)  from  the  map.    Keep  in  mind  that  the  order  of keys in a map is undefined.</p>
+
+<p>In the following table, <i>self</i> is a map, <i>i</i> is an integer, and <i>x</i> is any value.</p>
+
+<table class="methodlist">
+<tr><th>.hasIndex(x)</th><td>1 if x is a key contained in self; 0 otherwise</td></tr>
+<tr><th>.indexes</th><td>list containing all keys of self, in arbitrary order</td></tr>
+<tr><th>.indexOf(x, after=null)</th><td>first key in self that maps to x, or null if none; optionally begins the search after the given key</td></tr>
+<tr><th>.len</th><td>length (number of key-value pairs) of self</td></tr>
+<tr><th>.pop</th><td>remove and return an arbitrary key from self</td></tr>
+<tr><th>.push(x)</th><td>equivalent to self[x] = 1</td></tr>
+<tr><th>.remove(x)</th><td>removes the key-value pair where key=x from self (in place)</td></tr>
+<tr><th>.replace(oldVal, newVal, maxCount=null)</th><td>replaces up to maxCount values matching oldVal with newVal (in place); if maxCount not specified, replaces all</td></tr><tr><th>.shuffle</th><td>randomly remaps values for keys</td></tr>
+<tr><th>.sum</th><td>total of all numeric values in self</td></tr>
+<tr><th>.values</th><td>list containing all values of self, in arbitrary order</td></tr>
+</table>

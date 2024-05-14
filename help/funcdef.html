@@ -1,0 +1,28 @@
+<p>You define a new function with the <b>function</b> keyword with the function parameters (optionally, with default values) in parentheses.  This is followed by the code you want the function to execute, and finished with <b>end function</b>.</p>
+
+<pre class="code">triple = function(n=1)
+   return n*3
+end function</pre>
+
+<p>The example above defines a function that takes one argument, and returns that value times three.</p>
+
+A <b>function</b> block creates a function value; normally you immediately assign this to a variable, like <i>triple</i> in the example above.  Then you can invoke it via that variable.
+
+<pre class="code">print triple(14)
+print triple
+print triple("spam ")</pre>
+
+<p>The first line above prints 42, while the second line prints 3.  The last line prints the string "spam spam spam ".</p>
+
+<p>Here's an example that takes three parameters, two of them with default values.</p>
+
+<pre class="code">sandwich = function(meat, count=1, cheese=true)
+   out = ["bread"]
+   if cheese then out.push("cheese")
+   out = out + [meat] * count
+   out.push "bread"
+   return out
+end function</pre>
+
+<p>Remember that arguments are <i>always</i> optional; if no other default value is specified, then omitted arguments are assigned the value <b>null</b>.  Try it by invoking the function above with no arguments.  You'll get a nice null-and-cheese sandwich.</p>
+
