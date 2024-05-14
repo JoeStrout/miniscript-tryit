@@ -12,60 +12,49 @@
 
 <body data-src-file="miniscript-web-term/example/main.ms">
 
-<div>
-    <div class="container">
-        <p class="lead">Run some MiniScript code right in your browser!</p>
-        <div class="row mb-3" style="height: 100%" id="main">
-            <div class="col-xl">
-                <div id="editor" style="width:100%; height:400px">// Type your MiniScript code here!
+<!-- Code editor -->
+<div id="editor" style="height:400px">// Type your MiniScript code here!
 print "Hello world!"</div>
-            </div>
-            <br>
-            <div class="col-xl" id="terminal"></div>
-        </div>
+<br/>
 
-        <div class="alert alert-warning" id="warn" style="display: none;" role="alert"></div>
-        <div class="alert alert-danger" id="error" style="display: none;" role="alert"></div>
-        <div class="row">
-            <div class="col-sm mb-3">
-                <span>
-                    <button id="process" type="button" class="btn btn-dark">Run Script</button>
+<!-- Run button, etc. -->
+<span>
+	<button id="process" type="button" class="btn btn-dark">Run Script</button>
+	<button style="display: none;" id="procpend" class="btn btn-dark" type="button" disabled>
+  Processing...&nbsp;
+	<span class="spinner-border spinner-border-sm" role="status"></span>
+	</button>
+</span>
 
-                    <button style="display: none;" id="procpend" class="btn btn-dark" type="button" disabled>
-                      Processing...&nbsp;
-                      <span class="spinner-border spinner-border-sm" role="status"></span>
-                    </button>
-                </span>
-            </div>
-            <div class="col-sm">
-                <span>
-                    <button id="reset" type="button" class="btn btn-info">Reset</button>
-                </span>
-                <span class="ml-2">
-                    <button id="clear" type="button" class="btn btn-secondary">Clear</button>
-                </span>
-            </div>
-        </div>
+<span>
+<button id="reset" type="button" class="btn btn-info">Reset</button>
+</span>
 
-        <div class="row mt-2 ml-2">
-            <h3>Help &amp; Information</h3>
-        </div>
-        <div class="row ml-2">
-            <div class="col-md-3" id="info"></div>
-            <div class="col-md-9" id="help-view-container">
-            <span id="help-view"></span>
-            <span id="help-return"></span>
-            </div>
-        </div>
-    </div>
+<span>
+<button id="clear" type="button" class="btn btn-secondary">Clear</button>
+</span>
+
+<div style="height:20px"></div>
+
+<!-- Terminal -->
+<div id="terminal"></div>
+
+
+<!-- Help/Tutorial -->
+<h3>Help &amp; Information</h3>
+<div id="info"></div>
+<div id="help-view-container">
+	<span id="help-view"></span>
+	<span id="help-return"></span>
 </div>
 
+<!-- Scripts -->
 <script src="ace/build/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/textmate");
     editor.session.setMode("ace/mode/miniscript");
 </script>
-<script src="dist/miniscript-web-term.js"></script>
+<script src="miniscript-web-term/dist/miniscript-web-term.js"></script>
 </body>
 </html>
