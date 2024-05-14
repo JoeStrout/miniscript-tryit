@@ -1,0 +1,6 @@
+[submodule "ace"]
+	path = ace
+	url = https://github.com/JoeStrout/ace.git
+[submodule "miniscript-web-term"]
+	path = miniscript-web-term
+	url = https://github.com/JoeStrout/miniscript-web-term.git
