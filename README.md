@@ -2,11 +2,18 @@
 
 ### Online editor/runner/tutorial for basic MiniScript code
 
-## Cloning this repo
+## Dependencies
 
-This project makes use of two submodules, [ace](https://github.com/JoeStrout/ace) and [miniscript-web-term](https://github.com/JoeStrout/miniscript-web-term).  To be sure you have everything you need to work on this code locally, you will need to clone with the submodules.  On the command line, this would be:
+This project builds on [the Ace code editor](https://github.com/JoeStrout/ace) and [miniscript-web-term](https://github.com/JoeStrout/miniscript-web-term).  Both of those involve build steps and output a much smaller set of files that are actually needed by client projects, like this one.
 
-```bash
-git clone --recurse-submodules https://github.com/JoeStrout/miniscript-tryit.git
-```
+So, we've just included the build products here.  You should be able to just clone this repo and immediately run it.  (You will need an actual web server; `python -m http.server` is a convenient way to launch one locally for testing purposes.)
+
+### Updating miniscript-web-term
+
+- ToDo
+
+### Updating Ace
+
+- ToDo
+
 
