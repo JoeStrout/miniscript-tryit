@@ -8,9 +8,22 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="miniscript-web-term/miniscript-web-term.css"/>
+	<script>
+    // You can set Terminal options as documented here:
+    // https://xtermjs.org/docs/api/terminal/classes/terminal/#constructor
+    window.terminalOptions = {
+      theme: {
+        background: "#191A19",
+        foreground: "#F5F2E7",
+      },
+      // fontSize: 16,
+      // cursorBlink: true, // does not seem to work
+      cursorStyle: "block"
+    };
+   </script>
 </head>
 
-<body data-src-file="miniscript-web-term/example/main.ms">
+<body data-src-file="temp.ms">
 
 <!-- Code editor -->
 <div id="editor" style="height:400px">// Type your MiniScript code here!

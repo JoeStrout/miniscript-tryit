@@ -14311,13 +14311,13 @@ WARNING: This link could potentially be dangerous`)) {
 
   // src/msTerminal.ts
   var MSTerminal = class {
-    constructor(fileSystem, terminalOptions) {
+    constructor(fileSystem, terminalOptions2) {
       this.fileSystem = fileSystem;
       const outCallback = (txt) => {
         console.log(txt);
       };
       this.interp = new Interpreter(outCallback, outCallback);
-      const [terminal, readine] = this.setupTerminal(terminalOptions);
+      const [terminal, readine] = this.setupTerminal(terminalOptions2);
       this.addIntrinsics(terminal, readine);
     }
     interp;
@@ -14337,9 +14337,19 @@ WARNING: This link could potentially be dangerous`)) {
       term.focus();
       return [term, rl];
     }
-    async runCode(mainFile) {
+    async runCodeFromPath(mainFile2) {
       return new Promise(async (resolve) => {
-        const srcCode = await this.fileSystem.getSource(mainFile);
+        const srcCode = await this.fileSystem.getSource(mainFile2);
+        const coopRunner = this.interp.getCooperativeRunner(srcCode, mainFile2);
+        if (coopRunner) {
+          this.runCycles(coopRunner, () => {
+            resolve();
+          });
+        }
+      });
+    }
+    async runCodeFromString(srcCode) {
+      return new Promise(async (resolve) => {
         const coopRunner = this.interp.getCooperativeRunner(srcCode, mainFile);
         if (coopRunner) {
           this.runCycles(coopRunner, () => {
@@ -14399,22 +14409,25 @@ WARNING: This link could potentially be dangerous`)) {
   };
 
   // src/index.ts
+  async function runCodeFromPath(fileSystem, scriptFile) {
+    const msTerm = new MSTerminal(fileSystem, terminalOptions);
+    await msTerm.runCodeFromPath(scriptFile);
+    console.log("Finished");
+  }
   addEventListener("DOMContentLoaded", async (_) => {
     const body = document.querySelector("body");
     const fileName = body.getAttribute("data-src-file");
     if (typeof fileName !== "string") {
-      throw new Error("No source file specified!");
+      console.log("No source file specified on body tag");
+      return;
     }
-    const terminalOptions = window.terminalOptions;
+    const terminalOptions2 = window.terminalOptions;
     const [scriptBasePath, srcFile] = HttpFileSystem.splitPathAndFileName(fileName);
     const indexBasePath = new URL(document.baseURI).pathname.split("/").slice(0, -1).join("/");
     console.log("Using script base-path:", scriptBasePath);
     console.log("Using index base-path:", indexBasePath);
     const fileSystem = new HttpFileSystem(indexBasePath, scriptBasePath);
-    const mainFile = srcFile;
-    const msTerm = new MSTerminal(fileSystem, terminalOptions);
-    await msTerm.runCode(mainFile);
-    console.log("Finished");
+    runCodeFromPath(fileSystem, srcFile);
   });
 })();
 //# sourceMappingURL=miniscript-web-term.js.map
