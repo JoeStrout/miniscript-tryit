@@ -7638,14 +7638,14 @@ WARNING: This link could potentially be dangerous`)) {
          * @returns A promise to be called when the input has been read.
          */
         read(prompt) {
-          return new Promise((resolve, reject) => {
+          return new Promise((resolve, reject2) => {
             if (this.term === void 0) {
-              reject("addon is not active");
+              reject2("addon is not active");
               return;
             }
             this.state = new state_1.State(prompt, this.tty(), this.highlighter, this.history);
             this.state.refresh();
-            this.activeRead = { prompt, resolve, reject };
+            this.activeRead = { prompt, resolve, reject: reject2 };
           });
         }
         handleKeyEvent(event) {
@@ -14314,13 +14314,15 @@ WARNING: This link could potentially be dangerous`)) {
     constructor(fileSystem, terminalOptions) {
       this.fileSystem = fileSystem;
       const outCallback = (txt) => {
-        console.log(txt);
+        this.terminal.writeln(txt);
       };
       this.interp = new Interpreter(outCallback, outCallback);
       const [terminal, readine] = this.setupTerminal(terminalOptions);
       this.addIntrinsics(terminal, readine);
+      this.terminal = terminal;
     }
     interp;
+    terminal;
     addIntrinsics(terminal, readline) {
       const runtime = this.interp.runtime;
       const moduleLoader = new ModuleLoader(this.interp, this.fileSystem);
@@ -14337,33 +14339,47 @@ WARNING: This link could potentially be dangerous`)) {
       term.focus();
       return [term, rl];
     }
-    async runCodeFromPath(mainFile2) {
+    async runCodeFromPath(mainFile) {
       return new Promise(async (resolve) => {
-        const srcCode = await this.fileSystem.getSource(mainFile2);
-        const coopRunner = this.interp.getCooperativeRunner(srcCode, mainFile2);
+        const srcCode = await this.fileSystem.getSource(mainFile);
+        const coopRunner = this.interp.getCooperativeRunner(srcCode, mainFile);
         if (coopRunner) {
-          this.runCycles(coopRunner, () => {
-            resolve();
+          this.runCycles(coopRunner, (err) => {
+            if (err)
+              reject(err);
+            else
+              resolve();
           });
         }
       });
     }
     async runCodeFromString(srcCode) {
       return new Promise(async (resolve) => {
-        const coopRunner = this.interp.getCooperativeRunner(srcCode, mainFile);
+        const coopRunner = this.interp.getCooperativeRunner(srcCode, null);
         if (coopRunner) {
-          this.runCycles(coopRunner, () => {
-            resolve();
+          this.runCycles(coopRunner, (err) => {
+            if (err)
+              reject(err);
+            else
+              resolve();
           });
+        } else {
+          console.logError("runCodeFromString: unable to get coopRunner");
+          reject(new Error("Unable to get coopRunner"));
         }
       });
     }
     runCycles(coopRunner, onFinished) {
       if (!coopRunner.isFinished()) {
-        coopRunner.runSomeCycles();
-        setTimeout(() => {
-          this.runCycles(coopRunner, onFinished);
-        }, 0);
+        try {
+          coopRunner.runSomeCycles();
+          setTimeout(() => {
+            this.runCycles(coopRunner, onFinished);
+          }, 0);
+        } catch (err) {
+          console.log("caught error in runCycles");
+          onFinished(err);
+        }
       } else {
         onFinished();
       }
@@ -14409,19 +14425,24 @@ WARNING: This link could potentially be dangerous`)) {
   };
 
   // src/index.ts
+  var msTerm = null;
   async function runCodeFromPath(fileSystem, scriptFile) {
-    const msTerm = new MSTerminal(fileSystem, window.terminalOptions);
+    if (!msTerm)
+      msTerm = new MSTerminal(fileSystem, window.terminalOptions);
     await msTerm.runCodeFromPath(scriptFile);
-    console.log("Finished");
   }
   async function runCodeFromString(sourceCode, fileSystem) {
-    console.log("Running code:\n" + sourceCode);
     if (!fileSystem) {
       fileSystem = new HttpFileSystem("", "");
     }
-    const msTerm = new MSTerminal(fileSystem, window.terminalOptions);
-    await msTerm.runCodeFromString(sourceCode);
-    console.log("Finished");
+    if (!msTerm)
+      msTerm = new MSTerminal(fileSystem, window.terminalOptions);
+    try {
+      await msTerm.runCodeFromString(sourceCode);
+    } catch (err) {
+      console.log("error caught");
+      msTerm.terminal.writeln("Error found");
+    }
   }
   window.runCodeFromPath = runCodeFromPath;
   window.runCodeFromString = runCodeFromString;
@@ -14435,8 +14456,6 @@ WARNING: This link could potentially be dangerous`)) {
     const terminalOptions = window.terminalOptions;
     const [scriptBasePath, srcFile] = HttpFileSystem.splitPathAndFileName(fileName);
     const indexBasePath = new URL(document.baseURI).pathname.split("/").slice(0, -1).join("/");
-    console.log("Using script base-path:", scriptBasePath);
-    console.log("Using index base-path:", indexBasePath);
     const fileSystem = new HttpFileSystem(indexBasePath, scriptBasePath);
     runCodeFromPath(fileSystem, srcFile);
   });

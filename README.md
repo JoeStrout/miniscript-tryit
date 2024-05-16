@@ -10,7 +10,15 @@ So, we've just included the build products here.  You should be able to just clo
 
 ### Updating miniscript-web-term
 
-- ToDo
+1. Clone [miniscript-web-term](https://github.com/JoeStrout/miniscript-web-term) to your local machine.
+
+2. In the miniscript-web-term directory, do
+```
+npm run build
+```
+
+3. Copy the newly built files in the `dist` subdirectory to the `miniscript-web-term` subdirectory of this repo, overwriting the old files there.
+
 
 ### Updating Ace
 
