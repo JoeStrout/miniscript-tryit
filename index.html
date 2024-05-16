@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <title>MiniScript: Try It!</title>
     <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="miniscript-web-term/miniscript-web-term.css"/>
 	<script>
@@ -25,31 +26,38 @@
 
 <body data-src-file="temp.ms">
 
-<!-- Code editor -->
-<div id="editor" style="height:400px">// Type your MiniScript code here!
-print "Hello world!"</div>
-<br/>
+<div id="colcontainer">
+<div id="column1">
 
-<!-- Run button, etc. -->
+<!-- Code editor -->
+<div id="editor" style="height:386px">// Type your MiniScript code here!
+print "Hello world!"</div>
+
 <span>
 <button id="runButton" type="button" class="btn btn-dark">Run Script</button>
 </span>
 
-<span>
-<button id="reset" type="button" class="btn btn-info">Reset</button>
-</span>
-
-<span>
-<button id="clear" type="button" class="btn btn-secondary">Clear</button>
-</span>
-
 <div style="height:20px"></div>
 
-<!-- Terminal -->
-<div id="terminal" style="width:720px"></div>
+</div><div id="column2">
 
+<!-- Terminal -->
+<div id="terminal" style="max-width:720px"></div>
+
+<span>
+<button id="resetButton" type="button" class="btn btn-info">Reset</button>
+</span>
+
+<span>
+<button id="clearButton" type="button" class="btn btn-secondary">Clear</button>
+</span>
+
+</div><!-- end of column2 -->
+</div><!-- end of colcontainer -->
+<br style="clear:both">
 
 <!-- Help/Tutorial -->
+<hr/>
 <h3>Help &amp; Information</h3>
 <div id="info"></div>
 <div id="help-view-container">
@@ -70,6 +78,10 @@ print "Hello world!"</div>
    		console.log("Got code:\n" + code);
    		runCodeFromString(code);
    	});
+
+	document.getElementById('clearButton').addEventListener('click', () => {
+		xterm.clear();
+	});
 
 </script>
 <script>

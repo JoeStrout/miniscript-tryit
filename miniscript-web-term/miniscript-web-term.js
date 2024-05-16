@@ -14226,8 +14226,8 @@ WARNING: This link could potentially be dangerous`)) {
 
   // src/basicIO.ts
   var BasicIO = class {
-    constructor(xterm, readline) {
-      this.xterm = xterm;
+    constructor(xterm2, readline) {
+      this.xterm = xterm2;
       this.readline = readline;
     }
     addIntrinsics(runtime) {
@@ -14429,6 +14429,7 @@ WARNING: This link could potentially be dangerous`)) {
   async function runCodeFromPath(fileSystem, scriptFile) {
     if (!msTerm)
       msTerm = new MSTerminal(fileSystem, window.terminalOptions);
+    window.xterm = msTerm.terminal;
     await msTerm.runCodeFromPath(scriptFile);
   }
   async function runCodeFromString(sourceCode, fileSystem) {
@@ -14437,12 +14438,16 @@ WARNING: This link could potentially be dangerous`)) {
     }
     if (!msTerm)
       msTerm = new MSTerminal(fileSystem, window.terminalOptions);
+    window.xterm = msTerm.terminal;
     try {
       await msTerm.runCodeFromString(sourceCode);
     } catch (err) {
       console.log("error caught");
       msTerm.terminal.writeln("Error found");
     }
+  }
+  function xterm() {
+    return msTerm.terminal;
   }
   window.runCodeFromPath = runCodeFromPath;
   window.runCodeFromString = runCodeFromString;
