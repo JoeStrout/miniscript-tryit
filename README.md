@@ -2,6 +2,10 @@
 
 ### Online editor/runner/tutorial for basic MiniScript code
 
+This is a project to rewrite the [MiniScript Try-It! page](https://miniscript.org/tryit/) with one that runs entirely in the browser, using [miniscript-web-term](https://github.com/JoeStrout/miniscript-web-term) (cloned from [@Sebnozzi's amazing code](https://github.com/sebnozzi/miniscript-web-term)).
+
+**Try it now** by going to [https://joestrout.github.io/miniscript-tryit/](https://joestrout.github.io/miniscript-tryit/).
+
 ## Dependencies
 
 This project builds on [the Ace code editor](https://github.com/JoeStrout/ace) and [miniscript-web-term](https://github.com/JoeStrout/miniscript-web-term).  Both of those involve build steps and output a much smaller set of files that are actually needed by client projects, like this one.
