@@ -24,7 +24,7 @@
    </script>
 </head>
 
-<body data-src-file="temp.ms">
+<body>
 
 <div id="colcontainer">
 <div id="column1">
@@ -73,16 +73,19 @@ print "Hello world!"</div>
     editor.setTheme("ace/theme/textmate");
     editor.session.setMode("ace/mode/miniscript");
     
-   	document.getElementById('runButton').addEventListener('click', () => {
-   		const code = editor.getValue();
+    function runScript() {
+       	const code = editor.getValue();
    		console.log("Got code:\n" + code);
    		runCodeFromString(code);
-   	});
+	}	
+    
+   	document.getElementById('runButton').addEventListener('click', runScript);
 
 	document.getElementById('clearButton').addEventListener('click', () => {
 		xterm.clear();
 	});
 
+	runCodeFromString("");
 </script>
 <script>
   console.log("FOO");
