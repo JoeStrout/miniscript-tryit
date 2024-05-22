@@ -14226,35 +14226,29 @@ WARNING: This link could potentially be dangerous`)) {
 
   // src/basicIO.ts
   var BasicIO = class {
-    constructor(xterm2, readline) {
-      this.xterm = xterm2;
+    constructor(xterm, readline) {
+      this.xterm = xterm;
       this.readline = readline;
     }
     addIntrinsics(runtime) {
       const outerThis = this;
-      runtime.addIntrinsic(
-        "print(txt,delim=null)",
-        function(txt, delim) {
-          outerThis.print(txt, delim);
-        }
-      );
       runtime.addIntrinsic(
         "input(prompt=null)",
         function(prompt) {
           return outerThis.input(prompt);
         }
       );
-    }
-    print(txt, delim) {
-      if (txt === void 0 || txt === null) {
-        txt = "";
-      }
-      if (delim !== null && delim !== "\n" && delim !== "\r") {
-        txt = txt + delim;
-        this.xterm.write(txt);
-      } else {
-        this.xterm.writeln(txt);
-      }
+      runtime.addIntrinsic(
+        "version",
+        function() {
+          var result = runtime.newMap();
+          result.set("miniscript", "1.6.2");
+          result.set("buildDate", "1900-04-01");
+          result.set("hostName", "miniscript-tryit");
+          result.set("hostInfo", "https://github.com/JoeStrout/miniscript-tryit");
+          return result;
+        }
+      );
     }
     async input(prompt) {
       if (prompt === null) {
@@ -14364,7 +14358,6 @@ WARNING: This link could potentially be dangerous`)) {
               resolve();
           });
         } else {
-          console.logError("runCodeFromString: unable to get coopRunner");
           reject(new Error("Unable to get coopRunner"));
         }
       });
@@ -14445,9 +14438,6 @@ WARNING: This link could potentially be dangerous`)) {
       console.log("error caught");
       msTerm.terminal.writeln("Error found");
     }
-  }
-  function xterm() {
-    return msTerm.terminal;
   }
   window.runCodeFromPath = runCodeFromPath;
   window.runCodeFromString = runCodeFromString;
