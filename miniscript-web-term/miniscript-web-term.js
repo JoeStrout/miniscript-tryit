@@ -14224,6 +14224,14 @@ WARNING: This link could potentially be dangerous`)) {
   var import_xterm2 = __toESM(require_xterm());
   var import_xterm_readline = __toESM(require_readline());
 
+  // src/version-config.ts
+  var versionConfig = {
+    miniscript: "1.6.2",
+    buildDate: "2024-06-24",
+    hostName: "miniscript-tryit",
+    hostInfo: "https://github.com/JoeStrout/miniscript-tryit"
+  };
+
   // src/basicIO.ts
   var BasicIO = class {
     constructor(xterm, readline) {
@@ -14242,10 +14250,10 @@ WARNING: This link could potentially be dangerous`)) {
         "version",
         function() {
           var result = runtime.newMap();
-          result.set("miniscript", "1.6.2");
-          result.set("buildDate", "1900-04-01");
-          result.set("hostName", "miniscript-tryit");
-          result.set("hostInfo", "https://github.com/JoeStrout/miniscript-tryit");
+          result.set("miniscript", versionConfig.miniscript);
+          result.set("buildDate", versionConfig.buildDate);
+          result.set("hostName", versionConfig.hostName);
+          result.set("hostInfo", versionConfig.hostInfo);
           return result;
         }
       );
