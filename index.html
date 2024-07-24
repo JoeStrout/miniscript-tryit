@@ -69,7 +69,7 @@ print "Lift off!"
 <div id="terminal" style="max-width:720px"></div>
 
 <span>
-<button id="resetButton" type="button" class="btn btn-info">Reset</button>
+<button id="breakButton" type="button" class="btn btn-info">Break</button>
 </span>
 
 <span>
@@ -140,13 +140,19 @@ print "Lift off!"
     editor.setTheme("ace/theme/textmate");
     editor.session.setMode("ace/mode/miniscript");
     
-    // hook up the Run and Clear buttons
+    // hook up the Run, Break, and Clear buttons
     function runScript() {
        	const code = editor.getValue();
    		console.log("Got code:\n" + code);
    		runCodeFromString(code);
 	}	    
    	document.getElementById('runButton').addEventListener('click', runScript);
+   	   	
+	document.getElementById('breakButton').addEventListener('click', () => {
+		abortCodeRun();
+		xterm.write("\r\n\x1B[1;3;31mBREAK\x1B[0m\r\n");
+   	});
+   	
 	document.getElementById('clearButton').addEventListener('click', () => {
 		xterm.clear();
 	});

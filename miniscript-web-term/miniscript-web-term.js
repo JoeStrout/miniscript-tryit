@@ -14325,6 +14325,7 @@ WARNING: This link could potentially be dangerous`)) {
     }
     interp;
     terminal;
+    abort = false;
     addIntrinsics(terminal, readline) {
       const runtime = this.interp.runtime;
       const moduleLoader = new ModuleLoader(this.interp, this.fileSystem);
@@ -14346,6 +14347,7 @@ WARNING: This link could potentially be dangerous`)) {
         const srcCode = await this.fileSystem.getSource(mainFile);
         const coopRunner = this.interp.getCooperativeRunner(srcCode, mainFile);
         if (coopRunner) {
+          this.abort = false;
           this.runCycles(coopRunner, (err) => {
             if (err)
               reject(err);
@@ -14359,6 +14361,7 @@ WARNING: This link could potentially be dangerous`)) {
       return new Promise(async (resolve) => {
         const coopRunner = this.interp.getCooperativeRunner(srcCode, null);
         if (coopRunner) {
+          this.abort = false;
           this.runCycles(coopRunner, (err) => {
             if (err)
               reject(err);
@@ -14371,7 +14374,7 @@ WARNING: This link could potentially be dangerous`)) {
       });
     }
     runCycles(coopRunner, onFinished) {
-      if (!coopRunner.isFinished()) {
+      if (!coopRunner.isFinished() && !this.abort) {
         try {
           coopRunner.runSomeCycles();
           setTimeout(() => {
@@ -14447,8 +14450,13 @@ WARNING: This link could potentially be dangerous`)) {
       msTerm.terminal.writeln("Error found");
     }
   }
+  function abortCodeRun() {
+    if (msTerm)
+      msTerm.abort = true;
+  }
   window.runCodeFromPath = runCodeFromPath;
   window.runCodeFromString = runCodeFromString;
+  window.abortCodeRun = abortCodeRun;
   addEventListener("DOMContentLoaded", async (_) => {
     const body = document.querySelector("body");
     const fileName = body.getAttribute("data-src-file");
