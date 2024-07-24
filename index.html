@@ -84,16 +84,43 @@ print "Lift off!"
 <hr/>
 <div>
     <div class="container">
-        <div class="row mt-2 ml-2">
-            <h3>Help &amp; Information</h3>
-        </div>
-        <div class="row ml-2">
-            <div class="col-md-3" id="info"></div>
-            <div class="col-md-9" id="help-view">
+        <div class="row mt-2">
+            <div class="col-12 col-md-4">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="mb-0">Help &amp; Information</h3>
+                    </div>
+                    <div class="col-12">
+                        <div id="info" class="w-100"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-8 mt-3 mt-md-0" id="help-view">
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    @media (min-width: 768px) and (max-width: 991px) {
+        .container {
+            max-width: 100%;
+        }
+        #info {
+            max-width: calc(100% - 1rem);
+        }
+        #help-view {
+            max-width: 100%;
+        }
+    }
+    @media (max-width: 767px) {
+        #help-view {
+            margin-top: 1rem;
+        }
+    }
+</style>
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.7/jstree.min.js" integrity="sha256-So1t0NS1GeCJlhjvbf3o+JHWA+60Rkrj9Qu0waUEMoU=" crossorigin="anonymous"></script>
 <script>
