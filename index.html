@@ -140,24 +140,31 @@ print "Lift off!"
     editor.setTheme("ace/theme/textmate");
     editor.session.setMode("ace/mode/miniscript");
     
-    // hook up the Run, Break, and Clear buttons
+	// little helper methods
     function runScript() {
        	const code = editor.getValue();
    		console.log("Got code:\n" + code);
    		runCodeFromString(code);
-	}	    
+	}
+	
+	function breakScript() {
+		abortCodeRun();
+		xterm.write("\r\n\x1B[1;3;31mBREAK\x1B[0m\r\n");	
+	}
+
+    // hook up the Run, Break, and Clear buttons
    	document.getElementById('runButton').addEventListener('click', runScript);
    	   	
-	document.getElementById('breakButton').addEventListener('click', () => {
-		abortCodeRun();
-		xterm.write("\r\n\x1B[1;3;31mBREAK\x1B[0m\r\n");
-   	});
+	document.getElementById('breakButton').addEventListener('click', breakScript);
    	
 	document.getElementById('clearButton').addEventListener('click', () => {
 		xterm.clear();
 	});
 	runCodeFromString("");
-	
+	xterm.onKey(({ domEvent }) => {
+        const { key, ctrlKey } = domEvent;
+        if (ctrlKey && key === 'c') breakScript();
+    });
 </script>
 </body>
 </html>
